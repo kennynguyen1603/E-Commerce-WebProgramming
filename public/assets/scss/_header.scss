@@ -1,0 +1,51 @@
+.header-container {
+  position: sticky;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #8b8e99;
+  font-weight: bold;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  font-size: 1.1rem;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .routes {
+    display: flex;
+    gap: 24px;
+  }
+
+  .routes a {
+    color: #4a4a4a;
+    text-decoration: none;
+  }
+
+  .routes a.active-item {
+    color: #007bff;
+  }
+
+  .routes a:hover {
+    color: #007bff;
+  }
+
+  .auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .auth a {
+    color: #4a4a4a;
+    text-decoration: none;
+  }
+}
