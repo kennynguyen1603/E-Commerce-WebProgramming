@@ -1,7 +1,7 @@
 <!-- ịnh tuyến cho các trang chính, trang công khai -->
 
 <?php
-require 'routes/router.php';
+require __DIR__ . '/router.php';
 $router = new Router();
 
 // Trang chủ
