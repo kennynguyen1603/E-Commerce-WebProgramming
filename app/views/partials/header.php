@@ -17,14 +17,14 @@ $infoUser = isset($_SESSION['infoUser']) ? $_SESSION['infoUser'] : null;
     <div class="header-container">
         <div class="logo">
             <i class="fa fa-apple"></i>
-            <a href="/home">ex.iphones</a>
+            <a href="/e-commerce/app/views/home.php">ex.iphones</a>
         </div>
 
         <nav class="routes">
-            <a href="/home" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/home.php') ? 'active-item' : '' ?>">Home</a>
-            <a href="/contact" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/contact.php') ? 'active-item' : '' ?>">Contact</a>
-            <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/about.php') ? 'active-item' : '' ?>">About</a>
-            <a href="/products" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/products.php') ? 'active-item' : '' ?>">Products</a>
+            <a href="/e-commerce/app/views/home.php" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/home.php' || $_SERVER['REQUEST_URI'] === '/e-commerce/app/views/') ? 'active-item' : '' ?>">Home</a>
+            <a href="/e-commerce/app/views/contact.php" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/contact.php') ? 'active-item' : '' ?>">Contact</a>
+            <a href="/e-commerce/app/views/about.php" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/about.php') ? 'active-item' : '' ?>">About</a>
+            <a href="/e-commerce/app/views/products.php" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/products.php') ? 'active-item' : '' ?>">Products</a>
         </nav>
 
         <?php if ($infoUser): ?>
