@@ -1,0 +1,97 @@
+.about-container {
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #888;
+  .text-center {
+    text-align: center;
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .info {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      .author,
+      .date {
+        font-weight: bold;
+      }
+    }
+    .description {
+      font-size: 1rem;
+      margin: 2.5rem 0;
+      padding: 0 10rem;
+      line-height: 1.6;
+    }
+    .image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5rem;
+      .background-image {
+        width: 100%;
+      }
+      .logo-image {
+        position: absolute;
+        width: 25%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    // padding: 0 5rem;
+    .section {
+      .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      .quote {
+        background: linear-gradient(to left, #f0f0f0, #fff);
+        padding: 2rem;
+        margin: 2.5rem 0;
+        font-size: 2rem;
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+    .share-section {
+      padding-top: 5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      .share-text {
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #888;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        --tw-border-opacity: 1;
+        border-color: rgb(156 163 175 / var(--tw-border-opacity));
+        &:hover {
+          --tw-bg-opacity: 1;
+          background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+          --tw-text-opacity: 1;
+          color: rgb(255 255 255 / var(--tw-text-opacity));
+        }
+      }
+    }
+  }
+}
