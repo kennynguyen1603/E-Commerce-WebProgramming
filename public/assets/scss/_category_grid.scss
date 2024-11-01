@@ -1,0 +1,28 @@
+/* Tổng thể cho Shop by Category */
+.shop-by-category {
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px 150px;
+    padding: 20px;
+
+    .category-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      &:hover {
+        scale: 1.1;
+      }
+      img {
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+}
