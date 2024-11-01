@@ -1,5 +1,3 @@
-<?php
-?>
 <div id="carousel-container" class="carousel-container <?php echo htmlspecialchars($carouselClass); ?>">
     <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
     <div id="carousel-inner" class="carousel-inner">
@@ -23,6 +21,4 @@
     <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
 </div>
 
-<!-- Liên kết đến file CSS và JS -->
-<link rel="stylesheet" href="/public/assets/css/carousel.css">
-<script src="/public/assets/js/carousel.js" defer></script>
+<script src="/E-Commerce/public/assets/js/carousel.js" defer></script>
