@@ -123,7 +123,7 @@
         </div>
 
         <div class="footer-logo">
-            <img src="/public/assets/images/logoGrey.png" alt="ex.iphones" style="width: 50px;">
+            <i class="fa fa-apple"></i>
         </div>
 
         <p class="footer-copyright">

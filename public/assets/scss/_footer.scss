@@ -1,5 +1,5 @@
 .footer-container {
-  position: fixed;
+  position: relative;
   left: 0;
   bottom: 0;
   right: 0;
@@ -155,10 +155,6 @@
 
           &:hover {
             transform: translateY(-0.25rem);
-
-            svg {
-              stroke: #3b5998;
-            }
           }
 
           svg {
@@ -193,6 +189,11 @@
         }
       }
     }
+  }
+
+  .footer-logo {
+    font-size: 5rem;
+    margin-top: 1rem;
   }
 
   .footer-copyright {
