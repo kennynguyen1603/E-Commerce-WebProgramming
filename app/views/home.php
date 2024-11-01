@@ -2,7 +2,7 @@
 require_once __DIR__ . '/layout/MainLayout.php';
 
 $data = [
-    'pageTitle' => 'Trang Chủ',
+    'pageTitle' => 'Home',
     'infoUser' => false,
 ];
 
