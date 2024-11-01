@@ -1,1 +1,1 @@
-ErrorDocument 404 app/views/404.php
+ErrorDocument 404 /e-commerce/app/views/404.php

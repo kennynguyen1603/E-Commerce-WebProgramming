@@ -21,10 +21,10 @@ $infoUser = isset($_SESSION['infoUser']) ? $_SESSION['infoUser'] : null;
         </div>
 
         <nav class="routes">
-            <a href="/home" class="<?= ($_SERVER['REQUEST_URI'] === '/home') ? 'active-item' : '' ?>">Home</a>
-            <a href="/contact" class="<?= ($_SERVER['REQUEST_URI'] === '/contact') ? 'active-item' : '' ?>">Contact</a>
-            <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] === '/about') ? 'active-item' : '' ?>">About</a>
-            <a href="/products" class="<?= ($_SERVER['REQUEST_URI'] === '/products') ? 'active-item' : '' ?>">Products</a>
+            <a href="/home" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/home.php') ? 'active-item' : '' ?>">Home</a>
+            <a href="/contact" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/contact.php') ? 'active-item' : '' ?>">Contact</a>
+            <a href="/about" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/about.php') ? 'active-item' : '' ?>">About</a>
+            <a href="/products" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/products.php') ? 'active-item' : '' ?>">Products</a>
         </nav>
 
         <?php if ($infoUser): ?>
@@ -38,9 +38,9 @@ $infoUser = isset($_SESSION['infoUser']) ? $_SESSION['infoUser'] : null;
             </div>
         <?php else: ?>
             <div class="auth">
-                <a href="/login">Login</a>
+                <a href="/e-commerce/app/views/login.php">Login</a>
                 <p>|</p>
-                <a href="/sign-up">Sign up</a>
+                <a href="/e-commerce/app/views/sign-up.php">Sign up</a>
             </div>
         <?php endif; ?>
     </div>
