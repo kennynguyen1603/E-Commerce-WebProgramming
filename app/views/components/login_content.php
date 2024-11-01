@@ -15,7 +15,7 @@
         <div class="form-section">
             <div class="logo-section">
                 <img src="/E-Commerce/public/assets/image/logoGrey-81085dfe.png" alt="apple-logo" class="logo-image">
-                <p class="logo-text">ex.iphones</p>
+                <a href="/E-Commerce/app/views/home.php" class="logo-text">ex.iphones</a>
             </div>
             <h1 class="login-title">Login</h1>
             <form method="POST" action="login_handler.php">

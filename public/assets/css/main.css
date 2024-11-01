@@ -623,12 +623,14 @@ html {
   margin-bottom: 1.5rem;
 }
 .login-container .form-section .logo-section .logo-image {
-  width: 50px;
+  width: 40px;
   margin-right: 0.5rem;
 }
-.login-container .form-section .logo-section .logo-text {
+.login-container .form-section .logo-section a {
   font-size: 1.875rem;
   font-weight: bold;
+  text-decoration: none;
+  color: #6b7280;
 }
 .login-container .form-section .login-title {
   font-size: 2rem;
@@ -641,6 +643,7 @@ html {
 }
 .login-container .form-section .form-group .input-container {
   margin-top: 0.5rem;
+  width: 96%;
 }
 .login-container .form-section .form-group .input-container .input-field {
   width: 100%;
