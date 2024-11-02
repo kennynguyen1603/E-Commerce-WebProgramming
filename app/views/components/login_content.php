@@ -17,7 +17,7 @@
                 <a href="/E-Commerce/app/views/home.php" class="logo-text">ex.iphones</a>
             </div>
             <h1 class="login-title">Login</h1>
-            <form method="POST" action="login_handler.php">
+            <form method="POST" action="/E-Commerce/app/server/login_handler.php">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-container">
