@@ -17,7 +17,7 @@
                 <a href="/E-Commerce/app/views/home.php" class="logo-text">ex.iphones</a>
             </div>
             <h1 class="signup-title">Sign Up</h1>
-            <form method="POST" action="signup_handler.php">
+            <form method="POST" action="/E-Commerce/app/server/signup_handler.php">
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <div class="input-container">
