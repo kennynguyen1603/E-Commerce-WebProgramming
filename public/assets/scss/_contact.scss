@@ -1,0 +1,141 @@
+/* Variables */
+$bg-gray: #f3f4f6;
+$text-gray: #6b7280;
+$border-color: #d1d5db;
+$button-color: #f87171;
+$button-hover-color: #e11d48;
+$white: #ffffff;
+$black: #000000;
+
+.contact-container {
+  background-color: $bg-gray;
+  padding: 4rem 2.5rem;
+}
+
+/* Wrapper */
+.contact-wrapper {
+  display: flex;
+  gap: 1rem;
+  background-color: $white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Info */
+.contact-info {
+  background-color: $black;
+  color: $white;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  width: 40%;
+  position: relative;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .info-subtitle {
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Social Icons */
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Decorative Circles */
+  .circle-small,
+  .circle-large {
+    position: absolute;
+    border-radius: 50%;
+    background-color: $white;
+    opacity: 0.25;
+  }
+
+  .circle-small {
+    width: 8rem;
+    height: 8rem;
+    bottom: 3rem;
+    right: 3rem;
+  }
+
+  .circle-large {
+    width: 13rem;
+    height: 13rem;
+    bottom: -4rem;
+    right: -4rem;
+  }
+}
+
+/* Form Section */
+.contact-form {
+  width: 60%;
+  padding: 1.25rem;
+  color: $text-gray;
+
+  /* Form Grid */
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 0.875rem;
+    color: $text-gray;
+  }
+
+  /* Form Inputs */
+  .contact-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid $border-color;
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 1rem;
+    margin: 0.5rem 0;
+
+    label {
+      font-size: 0.875rem;
+      color: $text-gray;
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+    }
+  }
+
+  .submit-button {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: $button-color;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+  }
+}
