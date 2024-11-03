@@ -155,15 +155,15 @@ $text-color: #6b7280;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 30px;
-    /* Top Bar - Search Bar and Sort By */
+    padding: 10px 30px;
+    /* Top Bar - Search Bar, Results and Sort By */
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       .search-bar {
-        width: 70%;
+        width: 55%;
         display: flex;
         gap: 10px;
 
@@ -186,6 +186,17 @@ $text-color: #6b7280;
           &:hover {
             background-color: darken($primary-color, 10%);
           }
+        }
+      }
+
+      .results {
+        font-size: 0.875rem;
+        color: $text-color;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        p {
+          margin: 0;
         }
       }
 
