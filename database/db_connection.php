@@ -5,7 +5,7 @@ class DB_Connection
     private const USERNAME = "root";
     private const PASSWORD = "";
     private const DATABASENAME = "ecommerce";
-    private const PORT = 3307;
+    private const PORT = 3308;
 
     # Connect tới database
     public function connect()
@@ -19,7 +19,8 @@ class DB_Connection
             // Thiết lập chế độ lỗi PDO để phát hiện lỗi ngoại lệ
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (Exception $exception) {
-            die("Kết nối thất bại: " . $exception->getMessage());
+            echo json_encode(['success' => false, 'error' => 'Kết nối thất bại: ' . $exception->getMessage()]);
+            exit();
         }
         return $connection;
     }
@@ -37,8 +38,8 @@ class DB_Connection
             // Thực thi câu lệnh SQL với tham số
             return $statement->execute($params);
         } catch (Exception $exception) {
-            echo $exception->getMessage() . "<br/>";
-            echo "line " . $exception->getLine();
+            echo json_encode(['success' => false, 'error' => $exception->getMessage(), 'line' => $exception->getLine()]);
+            exit();
         }
     }
 
@@ -63,9 +64,8 @@ class DB_Connection
             $data = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         } catch (Exception $exception) {
-            echo $exception->getMessage() . "<br/>";
-            echo "line " . $exception->getLine();
-            return null;
+            echo json_encode(['success' => false, 'error' => $exception->getMessage(), 'line' => $exception->getLine()]);
+            exit();
         }
     }
 
@@ -90,9 +90,8 @@ class DB_Connection
             $data = $statement->fetch(PDO::FETCH_ASSOC);
             return $data;
         } catch (Exception $exception) {
-            echo $exception->getMessage() . "<br/>";
-            echo "line " . $exception->getLine();
-            return null;
+            echo json_encode(['success' => false, 'error' => $exception->getMessage(), 'line' => $exception->getLine()]);
+            exit();
         }
     }
 
@@ -117,9 +116,8 @@ class DB_Connection
             $data = $statement->rowCount();
             return $data;
         } catch (Exception $exception) {
-            echo $exception->getMessage() . "<br/>";
-            echo "line " . $exception->getLine();
-            return null;
+            echo json_encode(['success' => false, 'error' => $exception->getMessage(), 'line' => $exception->getLine()]);
+            exit();
         }
     }
 }
