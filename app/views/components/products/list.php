@@ -9,10 +9,5 @@ if (empty($_GET)) {
 }
 
 foreach ($products as $product) {
-    echo "<div class='product-item'>";
-    echo "<img src='{$product['thumbnail_url']}' alt='{$product['name']}'>";
-    echo "<h4 class='product-name'>{$product['name']}</h4>";
-    echo "<p class='product-price'>{$product['price']}</p>";
-    echo "<button class='btn btn-primary'>Mua Ngay</button>";
-    echo "</div>";
+    include __DIR__ . '/product_item.php';
 }

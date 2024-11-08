@@ -1,14 +1,14 @@
 <div class="login-container">
     <div class="image-section">
-        <img src="/E-Commerce/public/assets/image/LoginBG-89b402e9.png" alt="Login Background">
+        <img src="/e-commerce/public/assets/image/LoginBG-89b402e9.png" alt="Login Background">
     </div>
     <div class="form-section">
         <div class="logo-section">
-            <img src="/E-Commerce/public/assets/image/logoGrey-81085dfe.png" alt="apple-logo" class="logo-image">
-            <a href="/E-Commerce/app/views/home.php" class="logo-text">ex.iphones</a>
+            <img src="/e-commerce/public/assets/image/logoGrey-81085dfe.png" alt="apple-logo" class="logo-image">
+            <a href="/e-commerce/app/views/home.php" class="logo-text">ex.iphones</a>
         </div>
         <h1 class="login-title">Login</h1>
-        <form method="POST" action="/E-Commerce/app/server/login_handler.php">
+        <form method="post" action="/e-commerce/app/server/login_handler.php<?php echo isset($_GET['redirect']) ? '?redirect=' . urlencode($_GET['redirect']) : ''; ?>">
             <div class="form-group">
                 <label for="email">Email</label>
                 <div class="input-container">

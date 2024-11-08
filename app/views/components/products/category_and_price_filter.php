@@ -1,4 +1,4 @@
-<form method="GET" action="/E-Commerce/app/views/products.php" id="filterForm">
+<form method="GET" action="/e-commerce/app/views/products.php" id="filterForm">
     <div class="filter">
         <!-- Brand Filter (Multiple Selection) -->
         <div class="brand">

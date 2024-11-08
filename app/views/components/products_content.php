@@ -4,18 +4,16 @@
         const searchInput = document.getElementById('searchInput');
         const sortSelect = document.getElementById('sortSelect');
         const productCountElement = document.getElementById('productCount');
+        const customerId = "<?php echo isset($_SESSION['user_id']) ? htmlspecialchars($_SESSION['user_id']) : ''; ?>";
+
         // Function to fetch and update products based on filters
         function fetchFilteredProducts() {
             const formData = new URLSearchParams(new FormData(filterForm)).toString();
-
             const search = searchInput ? searchInput.value : '';
             const sort = sortSelect ? sortSelect.value : '';
 
-            // console.log('Search:', search, 'Sort:', sort, 'Form Data:', formData); // For debugging
+            const url = `/e-commerce/app/server/filter_product_handler.php?${formData}&search=${encodeURIComponent(search)}&sort=${encodeURIComponent(sort)}`;
 
-            const url = `/E-Commerce/app/server/filter_product_handler.php?${formData}&search=${encodeURIComponent(search)}&sort=${encodeURIComponent(sort)}`;
-
-            // Send AJAX request to filter_product_handler.php
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -27,11 +25,20 @@
                         const productItem = document.createElement('div');
                         productItem.classList.add('product-item');
                         productItem.innerHTML = `
-                        <img src="${product.thumbnail_url}" alt="${product.name}">
-                        <h4 class="product-name">${product.name}</h4>
-                        <p class="product-price">${parseFloat(product.price).toFixed(2)}$</p>
-                        <button class="btn btn-primary">Mua Ngay</button>
-                    `;
+                            <div class="product-image-container">
+                                <img src="${product.thumbnail_url}" alt="${product.name}" class="product-image">
+                                <div class="product-icons">
+                                    <a href="/e-commerce/app/views/product_detail.php?id=${product.id}" class="icon-link"><i class="fas fa-eye"></i></a>
+                                    <button class="icon-button add-to-cart"
+                                        onclick="addToCart('${product.id}', '${customerId}', 1)"
+                                    >
+                                    <i class="fas fa-cart-plus"></i></button>
+                                </div>
+                            </div>
+                            <h4 class="product-name">${product.name}</h4>
+                            <p class="product-price">${product.price}</p>
+                            <button class="btn btn-primary" onclick="checkout('${product.id}', 1)">Buy Now</button>
+                        `;
                         productContainer.appendChild(productItem);
                     });
                     productCountElement.textContent = `${data.length} products found`;
@@ -48,13 +55,10 @@
     function updatePriceRange() {
         const minPrice = document.getElementById('minPrice').value;
         const maxPrice = document.getElementById('maxPrice').value;
-
         document.getElementById('currentMinPrice').textContent = minPrice;
         document.getElementById('currentMaxPrice').textContent = maxPrice;
     }
 </script>
-
-
 
 <div class="products-container">
     <!-- Sidebar: Category and Price Filter -->
@@ -67,10 +71,10 @@
         <!-- Top Bar: Search Bar and Sort By -->
         <div class="top-bar">
             <?php include 'products/search_bar.php'; ?>
-            <!-- kết quả tìm kiếm -->
+            <!-- Search Results -->
             <div class="results">
                 <h3>Search Results:</h3>
-                <p id="productCount">All Product</p>
+                <p id="productCount">All Products</p>
             </div>
             <?php include 'products/sort_by.php'; ?>
         </div>
@@ -86,3 +90,5 @@
         </div>
     </main>
 </div>
+
+<script src="/e-commerce/public/assets/js/checkout.js"></script>

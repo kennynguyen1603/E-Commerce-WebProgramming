@@ -22,10 +22,9 @@
         <h2 class="section-title">Best Sellers</h2>
 
         <?php
-        $productsAPI = include __DIR__ . '/../../../database/test.php';
-        $products = $productsAPI;
+        $products = $data['products'];
         $carouselClass = 'best-sellers-carousel';
-        include 'carousel.php';
+        include __DIR__  . '/products/carousel.php';
         ?>
 
         <button class="view-all-btn"> View All </button>
@@ -57,8 +56,6 @@
         <h2 class="section-title">Shop By Category</h2>
 
         <?php
-        // $productsAPI = include __DIR__ . '/../../../database/test.php';
-        // $products = $productsAPI;
         include 'category_grid.php';
         ?>
 

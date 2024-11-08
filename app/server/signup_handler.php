@@ -2,11 +2,16 @@
 session_start();
 require_once '../../database/db_connection.php';
 
-$db = new DB_Connection();
+try {
+    $db = new DB_Connection();
+} catch (Exception $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy dữ liệu từ form
     $fullname = trim($_POST['fullname']);
+    // $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -30,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Kiểm tra xem email đã tồn tại trong cơ sở dữ liệu chưa
-    $selectQuery = "SELECT * FROM users WHERE email = :email";
+    $selectQuery = "SELECT * FROM customers WHERE email = :email";
     $existingUser = $db->get_one($selectQuery, [':email' => $email]);
 
     if ($existingUser) {
@@ -42,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Thêm người dùng mới vào cơ sở dữ liệu
-    $insertQuery = "INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, 'user')";
+    $insertQuery = "INSERT INTO customers (username, email, password, role) VALUES (:username, :email, :password, 'user')";
     $params = [
         ':username' => $fullname,
         ':email' => $email,
@@ -52,12 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $db->query($insertQuery, $params);
 
     if ($result) {
+        session_regenerate_id(true);
         $_SESSION['user_id'] = $db->connect()->lastInsertId();
         $_SESSION['username'] = $fullname;
         $_SESSION['role'] = 'user';
 
         echo "Registration successful!";
-        header("Location: /E-Commerce/app/views/home.php");
+        header("Location: /e-commerce/app/views/home.php");
         exit();
     } else {
         echo "Error occurred while registering. Please try again.";
