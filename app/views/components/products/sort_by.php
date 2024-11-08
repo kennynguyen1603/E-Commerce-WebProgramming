@@ -1,8 +1,9 @@
 <div class="sort-by">
     <label for="sort">Sort by:</label>
-    <select id="sort" class="sort-select">
-        <option value="price_low_high">Price: Low to High</option>
-        <option value="price_high_low">Price: High to Low</option>
-        <option value="popularity">Popularity</option>
+    <select name="sort" id="sortSelect" class="sort-select">
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="name_asc">Name: A to Z</option>
+        <option value="name_desc">Name: Z to A</option>
     </select>
 </div>

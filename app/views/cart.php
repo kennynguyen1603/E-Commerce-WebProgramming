@@ -2,7 +2,7 @@
 require_once __DIR__ . '/layout/MainLayout.php';
 
 $data = [
-    'pageTitle' => 'Giỏ hàng',
+    'pageTitle' => 'Cart',
     'infoUser' => false,
 ];
 

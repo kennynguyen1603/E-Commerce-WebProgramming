@@ -1,44 +1,57 @@
-<div class="filter">
-    <!-- Category Filter -->
-    <div class="category">
-        <h3 class="filter-title">Category</h3>
-        <ul class="checkbox-container">
-            <li><input type="checkbox" name="category" id="iPhone" value="iPhone"><label for="iPhone">iPhone</label></li>
-            <li><input type="checkbox" name="category" id="iMac" value="iMac"><label for="iMac">iMac</label></li>
-            <li><input type="checkbox" name="category" id="macBook" value="MacBook"><label for="macBook">MacBook</label></li>
-            <li><input type="checkbox" name="category" id="appleWatch" value="Apple Watch"><label for="appleWatch">Apple Watch</label></li>
-        </ul>
-    </div>
+<form method="GET" action="/E-Commerce/app/views/products.php" id="filterForm">
+    <div class="filter">
+        <!-- Brand Filter (Multiple Selection) -->
+        <div class="brand">
+            <h3 class="filter-title">Brand</h3>
+            <ul class="checkbox-container">
+                <li><input type="checkbox" name="brand[]" id="apple" value="Apple"><label for="apple">Apple</label></li>
+                <li><input type="checkbox" name="brand[]" id="samsung" value="Samsung"><label for="samsung">Samsung</label></li>
+                <li><input type="checkbox" name="brand[]" id="xiaomi" value="Xiaomi"><label for="xiaomi">Xiaomi</label></li>
+                <!-- Add other brands if needed -->
+            </ul>
+        </div>
 
-    <!-- Price Range Slider -->
-    <div class="price-range">
-        <h3 class="filter-title">Price Range</h3>
-        <div class="slider">
-            <div class="process"></div>
+        <!-- Category Filter (Multiple Selection) -->
+        <div class="category">
+            <h3 class="filter-title">Category</h3>
+            <ul class="checkbox-container">
+                <li><input type="checkbox" name="category[]" id="smartPhone" value="smartPhone"><label for="smartPhone">Smart Phone</label></li>
+                <li><input type="checkbox" name="category[]" id="Tablet" value="Tablet"><label for="Tablet">Tablet</label></li>
+                <li><input type="checkbox" name="category[]" id="Laptop" value="Laptop"><label for="Laptop">Laptop</label></li>
+                <li><input type="checkbox" name="category[]" id="smartWatch" value="smartWatch"><label for="smartWatch">Smart Watch</label></li>
+                <li><input type="checkbox" name="category[]" id="Others" value="Others"><label for="Others">Others</label></li>
+            </ul>
         </div>
-        <div class="range-inputs">
-            <input type="range" class="range-min" min="0" max="50000" value="0" id="minPrice" oninput="updatePriceRange()">
-            <input type="range" class="range-max" min="0" max="50000" value="50000" id="maxPrice" oninput="updatePriceRange()">
-        </div>
-        <div class="price-values">
-            <span>0$</span>
-            <span id="currentMinPrice">0$</span>
-            <span id="currentMaxPrice">50000$</span>
-            <span>50000$</span>
-        </div>
-    </div>
 
-    <!-- Price Filters Radio Buttons -->
-    <div class="price-filters">
-        <h3 class="filter-title">Price Filters</h3>
-        <div class="radio-buttons">
-            <div><input type="radio" name="price" id="allPrice" value="0-50000"><label for="allPrice">All price</label></div>
-            <div><input type="radio" name="price" id="under10000" value="0-10000"><label for="under10000">Under 10000$</label></div>
-            <div><input type="radio" name="price" id="10000-20000" value="10000-20000"><label for="10000-20000">10000$ - 20000$</label></div>
-            <div><input type="radio" name="price" id="20000-30000" value="20000-30000"><label for="20000-30000">20000$ - 30000$</label></div>
-            <div><input type="radio" name="price" id="30000-40000" value="30000-40000"><label for="30000-40000">30000$ - 40000$</label></div>
-            <div><input type="radio" name="price" id="40000-50000" value="40000-50000"><label for="40000-50000">40000$ - 50000$</label></div>
-            <div><input type="radio" name="price" id="above50000" value="50000-100000"><label for="above50000">Above 50000$</label></div>
+        <!-- Price Range Slider -->
+        <div class="price-range">
+            <h3 class="filter-title">Price Range</h3>
+            <div class="slider">
+                <div class="process"></div>
+            </div>
+            <div class="range-inputs">
+                <input type="range" class="range-min" min="0" max="4000" value="0" id="minPrice" oninput="updatePriceRange()">
+                <input type="range" class="range-max" min="0" max="4000" value="4000" id="maxPrice" oninput="updatePriceRange()">
+            </div>
+            <div class="price-values">
+                <span>0$</span>
+                <span id="currentMinPrice">0$</span>
+                <span id="currentMaxPrice">4000$</span>
+                <span>4000$</span>
+            </div>
+        </div>
+
+        <!-- Price Filters Radio Buttons -->
+        <div class="price-filters">
+            <h3 class="filter-title">Price Filters</h3>
+            <div class="radio-buttons">
+                <div><input type="radio" name="priceFilter" id="allPrice" value="0-10000"><label for="allPrice">All price</label></div>
+                <div><input type="radio" name="priceFilter" id="under1000" value="0-1000"><label for="under1000">Under 1000$</label></div>
+                <div><input type="radio" name="priceFilter" id="1000-2000" value="1000-2000"><label for="1000-2000">1000$ - 2000$</label></div>
+                <div><input type="radio" name="priceFilter" id="2000-3000" value="2000-3000"><label for="2000-3000">2000$ - 3000$</label></div>
+                <div><input type="radio" name="priceFilter" id="3000-4000" value="3000-4000"><label for="3000-4000">3000$ - 4000$</label></div>
+                <div><input type="radio" name="priceFilter" id="above4000" value="4000-100000"><label for="above4000">Above 4000$</label></div>
+            </div>
         </div>
     </div>
-</div>
+</form>

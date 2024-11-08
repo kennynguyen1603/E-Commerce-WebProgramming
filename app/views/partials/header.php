@@ -1,6 +1,14 @@
 <?php
 session_start();
-$infoUser = isset($_SESSION['infoUser']) ? $_SESSION['infoUser'] : null;
+$infoUser = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+// Kiểm tra nếu người dùng nhấn nút "Logout"
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location: /e-commerce/app/views/home.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +37,11 @@ $infoUser = isset($_SESSION['infoUser']) ? $_SESSION['infoUser'] : null;
 
         <?php if ($infoUser): ?>
             <div class="auth">
-                <a href="/cart">
+                <a href="/e-commerce/app/views/cart.php">
                     <i class="fa fa-shopping-cart"></i>
                 </a>
                 <form method="POST" style="display:inline;">
-                    <button type="submit" name="logout">Logout</button>
+                    <button type="submit" name="logout" class="logout-button">Logout</button>
                 </form>
             </div>
         <?php else: ?>
