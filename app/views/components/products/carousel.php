@@ -4,14 +4,9 @@
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <div class="carousel-item">
-                    <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                    <img src="<?php echo htmlspecialchars($product['thumbnail_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
                     <h3 class="product-name"><?php echo htmlspecialchars($product['name']); ?></h3>
                     <p class="product-price"><?php echo htmlspecialchars($product['price']); ?></p>
-                    <div class="stars">
-                        <?php for ($i = 0; $i < $product['rating']; $i++): ?>
-                            <i class="fas fa-star"></i>
-                        <?php endfor; ?>
-                    </div>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

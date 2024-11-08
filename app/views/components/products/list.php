@@ -1,81 +1,13 @@
-    <?php
-    // Giả lập dữ liệu sản phẩm
-    $products = [
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro_1.png",
-            "name" => "iPhone 16 Pro",
-            "price" => "$999",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-1.png",
-            "name" => "iPhone 16",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$599",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-1.png",
-            "name" => "iPhone 16",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ],
-        [
-            "image" => "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-pro-max_3.png",
-            "name" => "iPhone Pro 15",
-            "price" => "$799",
-            "rating" => "5"
-        ]
-    ];
+<?php
+require_once __DIR__ . '/../../../../database/db_connection.php';
+$db = new DB_Connection();
 
-    foreach ($products as $product) {
-        echo "<div class='product-item'>";
-        echo "<img src='{$product['image']}' alt='{$product['name']}'>";
-        echo "<h4 class='product-name'>{$product['name']}</h4>";
-        echo "<p class='product-price'>{$product['price']}</p>";
+// Lấy tất cả sản phẩm nếu không có bộ lọc
+if (empty($_GET)) {
+    $query = "SELECT * FROM products";
+    $products = $db->get($query);
+}
 
-        echo "<button class='btn btn-primary'>Buy Now</button>";
-        echo "</div>";
-    }
-    ?>
+foreach ($products as $product) {
+    include __DIR__ . '/product_item.php';
+}
