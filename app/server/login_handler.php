@@ -15,14 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Kiểm tra xem email có tồn tại không
-    $selectQuery = "SELECT id, username, password, role FROM customers WHERE email = :email";
+    $selectQuery = "SELECT id, password, role FROM customers WHERE email = :email";
     $user = $db->get_one($selectQuery, [':email' => $email]);
 
     if ($user && password_verify($password, $user['password'])) {
         // Mật khẩu đúng, tạo session cho người dùng
         session_regenerate_id(true);
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
+        // $_SESSION['username'] = $user['username'];
+        $_SESSION['username'] = $user['first_name'] . ' ' . $user['last_name'];
         $_SESSION['role'] = $user['role'];
 
         if (isset($_GET['redirect'])) {

@@ -6,42 +6,45 @@ class DB_Connection
     private const PASSWORD = "";
     private const DATABASENAME = "ecommerce";
     private const PORT = 3308;
+    private $connection;
 
-    # Connect tới database
+    // Kết nối tới database và lưu kết nối
     public function connect()
     {
-        try {
-            $connection = new PDO(
-                "mysql:host=" . self::SERVERNAME . ";port=" . self::PORT . ";dbname=" . self::DATABASENAME,
-                self::USERNAME,
-                self::PASSWORD
-            );
-            // Thiết lập chế độ lỗi PDO để phát hiện lỗi ngoại lệ
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (Exception $exception) {
-            echo json_encode(['success' => false, 'error' => 'Kết nối thất bại: ' . $exception->getMessage()]);
-            exit();
+        if ($this->connection === null) { // Kiểm tra nếu kết nối chưa được khởi tạo
+            try {
+                $this->connection = new PDO(
+                    "mysql:host=" . self::SERVERNAME . ";port=" . self::PORT . ";dbname=" . self::DATABASENAME,
+                    self::USERNAME,
+                    self::PASSWORD
+                );
+                $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (Exception $exception) {
+                echo json_encode(['success' => false, 'error' => 'Kết nối thất bại: ' . $exception->getMessage()]);
+                exit();
+            }
         }
-        return $connection;
+        return $this->connection;
     }
 
-    # Hàm tổng quát cho CREATE, UPDATE, DELETE
+    // Hàm lấy ID của bản ghi vừa chèn vào
+    public function lastInsertId()
+    {
+        return $this->connection->lastInsertId();
+    }
+
+    // Hàm tổng quát cho CREATE, UPDATE, DELETE
     public function query($query, $params)
     {
         try {
-            // Kết nối tới database
-            $connection = $this->connect();
-
-            // Chuẩn bị câu lệnh SQL với tham số
-            $statement = $connection->prepare($query);
-
-            // Thực thi câu lệnh SQL với tham số
+            $statement = $this->connect()->prepare($query);
             return $statement->execute($params);
         } catch (Exception $exception) {
             echo json_encode(['success' => false, 'error' => $exception->getMessage(), 'line' => $exception->getLine()]);
             exit();
         }
     }
+
 
     # Lấy tất cả dữ liệu
     public function get($query, $params = null)

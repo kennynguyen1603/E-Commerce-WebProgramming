@@ -10,14 +10,14 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy dữ liệu từ form
-    $fullname = trim($_POST['fullname']);
-    // $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $first_name = trim($_POST['first_name']);
+    $last_name = trim($_POST['last_name']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
     // Kiểm tra các trường bắt buộc
-    if (empty($fullname) || empty($email) || empty($password) || empty($confirm_password)) {
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password)) {
         echo "All fields are required.";
         exit();
     }
@@ -47,9 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Thêm người dùng mới vào cơ sở dữ liệu
-    $insertQuery = "INSERT INTO customers (username, email, password, role) VALUES (:username, :email, :password, 'user')";
+    $insertQuery = "INSERT INTO customers (first_name, last_name, email, password, role) VALUES (:first_name, :last_name, :email, :password, 'user')";
     $params = [
-        ':username' => $fullname,
+        ':first_name' => $first_name,
+        ':last_name' => $last_name,
         ':email' => $email,
         ':password' => $hashed_password
     ];
@@ -59,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result) {
         session_regenerate_id(true);
         $_SESSION['user_id'] = $db->connect()->lastInsertId();
-        $_SESSION['username'] = $fullname;
+        $_SESSION['username'] = $first_name . ' ' . $last_name;
         $_SESSION['role'] = 'user';
 
         echo "Registration successful!";
