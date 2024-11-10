@@ -37,10 +37,10 @@
             <div class="circle-large"></div>
         </div>
 
-        <form class="contact-form">
+        <form class="contact-form" method="post" action="/e-commerce/app/server/contact_handler.php">
             <div class="form-grid">
                 <div>
-                    <label for="firstName">First Name</label>
+                    <label for="Cách">First Name</label>
                     <input type="text" id="firstName" name="firstName" placeholder="Enter your First Name" class="contact-input">
                 </div>
                 <div>
