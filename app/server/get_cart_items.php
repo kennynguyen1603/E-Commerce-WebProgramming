@@ -1,7 +1,7 @@
 <?php
 session_start();
-header('Content-Type: application/json');
 require_once __DIR__ . '/../../database/db_connection.php';
+header('Content-Type: application/json');
 $db = new DB_Connection();
 
 if (isset($_SESSION['user_id'])) {

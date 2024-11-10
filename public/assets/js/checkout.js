@@ -30,6 +30,5 @@ function checkoutCart() {
     })
     .catch((error) => {
       console.error("Lỗi:", error);
-      alert("Không thể tải giỏ hàng. Vui lòng thử lại.");
     });
 }

@@ -64,7 +64,9 @@ CREATE TABLE stocks (
 -- Bảng customers - lưu thông tin khách hàng
 CREATE TABLE customers (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
+    -- sửa username thành first_name và last_name
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     phone VARCHAR(20),
@@ -92,6 +94,22 @@ CREATE TABLE order_items (
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE
     SET NULL
+);
+-- Bảng order_billing_details - lưu thông tin thanh toán của đơn hàng
+CREATE TABLE order_billing_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    company_name VARCHAR(100),
+    address VARCHAR(255) NOT NULL,
+    country VARCHAR(50),
+    region VARCHAR(50),
+    city VARCHAR(50),
+    zip_code VARCHAR(20),
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
 );
 -- Bảng reviews - lưu đánh giá của khách hàng về sản phẩm
 CREATE TABLE reviews (
@@ -133,6 +151,7 @@ ADD COLUMN role ENUM('admin', 'user') NOT NULL DEFAULT 'user';
 -- DROP TABLE cart_items;
 -- DROP TABLE cart;
 -- DROP TABLE reviews;
+-- DROP TABLE order_billing_details;
 -- DROP TABLE order_items;
 -- DROP TABLE orders;
 -- DROP TABLE stocks;
@@ -154,3 +173,9 @@ ALTER TABLE customers DROP INDEX username;
 -- thêm thumbnail_url cho categories
 ALTER TABLE categories
 ADD COLUMN thumbnail_url VARCHAR(255);
+ALTER TABLE orders
+MODIFY customer_id INT NULL;
+-- sửa username thành first_name và last_name
+ALTER TABLE customers CHANGE COLUMN username first_name VARCHAR(50);
+ALTER TABLE customers
+ADD COLUMN last_name VARCHAR(50);
