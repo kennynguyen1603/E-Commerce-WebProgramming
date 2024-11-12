@@ -144,6 +144,22 @@ CREATE TABLE cart_items (
     FOREIGN KEY (cart_id) REFERENCES cart(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
+-- Bảng contact - Lưu thông tin contact
+CREATE TABLE contacts (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    firstName VARCHAR(100) NULL,
+    secondName VARCHAR(100) NULL,
+    email VARCHAR(255) NULL,
+    phone VARCHAR(20) NULL,
+    subject ENUM(
+        'General Inquiry',
+        'Support',
+        'Feedback',
+        'Other'
+    ) NULL,
+    message TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
 -- thêm một dòng dữ liệu vào bảng users
 ALTER TABLE users
 ADD COLUMN role ENUM('admin', 'user') NOT NULL DEFAULT 'user';
@@ -161,6 +177,7 @@ ADD COLUMN role ENUM('admin', 'user') NOT NULL DEFAULT 'user';
 -- DROP TABLE customers;
 -- DROP TABLE brands;
 -- DROP TABLE categories;
+-- DROP TABLE contacts;
 -- thêm role cho customer
 ALTER TABLE customers
 ADD COLUMN role ENUM('admin', 'user') NOT NULL DEFAULT 'user';
