@@ -63,10 +63,11 @@ try {
         $db->query($orderItemQuery, $params);
     }
 
-    // echo json_encode(['success' => true, 'message' => 'Order created successfully']);
+    echo json_encode(['success' => true, 'message' => 'Order created successfully']);
+    echo '<button onclick="window.location.href=\'/e-commerce/app/views/home.php\'">Go to Home</button>';
     // header('Location: /app/views/order_confirmation.php?order_id=' . $order_id); chuyển đến trang xác nhận đơn hàng
     // tạm thời cho chuyển đến trang products
-    header('Location: /e-commerce/app/views/products.php');
+    // header('Location: /e-commerce/app/views/products.php');
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'error' => 'Failed to create order: ' . $e->getMessage()]);
 }
