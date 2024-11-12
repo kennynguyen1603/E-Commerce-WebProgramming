@@ -5,7 +5,7 @@ class DB_Connection
     private const USERNAME = "root";
     private const PASSWORD = "";
     private const DATABASENAME = "ecommerce";
-    private const PORT = 3306;
+    private const PORT = 3308;
     private $connection;
 
     // Kết nối tới database và lưu kết nối
