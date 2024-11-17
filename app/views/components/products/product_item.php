@@ -1,11 +1,10 @@
-<!-- product_item.php -->
 <div class='product-item'>
     <div class='product-image-container'>
         <img src='<?php echo $product['thumbnail_url']; ?>' alt='<?php echo $product['name']; ?>' class='product-image'>
         <div class='product-icons'>
-            <a href='/e-commerce/app/views/product_detail.php?id=<?php echo $product['id']; ?>' class='icon-link'><i class='fas fa-eye'></i></a>
+            <a href='/e-commerce/app/views/product_detail.php?id=<?php echo $product['id']; ?>' class='icon-link'><i class="fa fa-eye" aria-hidden="true"></i></a>
             <button onclick="addToCart('<?php echo $product['id']; ?>', '<?php echo isset($_SESSION['user_id']) ? htmlspecialchars($_SESSION['user_id']) : ''; ?>', 1)" class='icon-button'>
-                <i class='fas fa-cart-plus'></i>
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
         </div>
     </div>
