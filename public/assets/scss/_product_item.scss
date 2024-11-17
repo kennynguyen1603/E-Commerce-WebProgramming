@@ -1,5 +1,5 @@
 .product-item {
-  padding: 10px;
+  padding: 20px 10px;
   border: 1px solid $border-color;
   border-radius: 5px;
   display: flex;
@@ -7,6 +7,7 @@
   align-items: center;
   transition: transform 0.3s;
   background-color: #fff;
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,11 +24,12 @@
     }
 
     .product-image {
-      width: 100%;
+      width: 80%;
       height: auto;
       object-fit: cover;
       border-radius: 5px;
       margin-bottom: 10px;
+      padding: 15px 25px;
     }
 
     .product-icons {
