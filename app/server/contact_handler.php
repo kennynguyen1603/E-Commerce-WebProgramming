@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Email không hợp lệ. Vui lòng kiểm tra lại.";
         } else {
             // Nếu dữ liệu hợp lệ, thực thi câu lệnh INSERT vào cơ sở dữ liệu
-            $query = "INSERT INTO contacts (firstName, secondName, email, phone, subject, message) 
+            $query = "INSERT INTO contact (firstName, secondName, email, phone, subject, message) 
                       VALUES (:firstName, :secondName, :email, :phone, :subject, :message)";
 
             // Mảng tham số để bind vào câu lệnh SQL
