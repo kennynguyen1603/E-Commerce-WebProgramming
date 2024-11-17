@@ -1,4 +1,3 @@
-<!-- product_item.php -->
 <div class='product-item'>
     <div class='product-image-container'>
         <img src='<?php echo $product['thumbnail_url']; ?>' alt='<?php echo $product['name']; ?>' class='product-image'>

@@ -4,9 +4,7 @@
         <?php if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <div class="carousel-item">
-                    <img src="<?php echo htmlspecialchars($product['thumbnail_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
-                    <h3 class="product-name"><?php echo htmlspecialchars($product['name']); ?></h3>
-                    <p class="product-price"><?php echo htmlspecialchars($product['price']); ?></p>
+                    <?php include __DIR__ . '/product_item.php'; ?>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
