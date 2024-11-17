@@ -52,7 +52,7 @@ if (isset($productDetails['images']) && is_array($productDetails['images'])) {
                     <span class="original-price">₹<?php echo number_format($productDetails['price'], 2); ?></span>
                     <span class="discount-percent"><?php echo $productDetails['discount']; ?>% OFF</span>
                 </p>
-                <p class="description"><?php echo htmlspecialchars($productDetails['description'] ?? 'No description available.'); ?></p>
+                <!-- <p class="description"><?php echo htmlspecialchars($productDetails['description'] ?? 'No description available.'); ?></p> -->
                 <!-- Add to Cart Section -->
                 <div class="cart-controls">
                     <button class="quantity-control" onclick="decreaseQuantity()">-</button>
@@ -69,7 +69,7 @@ if (isset($productDetails['images']) && is_array($productDetails['images'])) {
                 </div>
                 <!-- Tab Content -->
                 <div id="description" class="tab-content">
-                    <p><?php echo htmlspecialchars($productDetails['description'] ?? 'No description available.'); ?></p>
+                    <!-- <p><?php echo htmlspecialchars($productDetails['description'] ?? 'No description available.'); ?></p> -->
                 </div>
                 <div id="reviews" class="tab-content" style="display:none;">
                     <h3>Reviews</h3>
