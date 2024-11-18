@@ -1895,3 +1895,117 @@ html {
   width: 80%;
   height: auto;
 }
+
+.profile-container {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+.profile-container .sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-container .sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.profile-container .sidebar ul li {
+  margin-bottom: 10px;
+}
+.profile-container .sidebar ul li a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 1rem;
+  padding: 10px 0;
+  display: block;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+.profile-container .sidebar ul li a:hover {
+  color: #2563eb;
+  border-left-color: #2563eb;
+  background-color: #f0f8ff;
+}
+.profile-container .sidebar ul li a.active {
+  color: #2563eb;
+  font-weight: bold;
+  border-left-color: #2563eb;
+}
+.profile-container .main-content {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.profile-container .main-content h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333333;
+}
+.profile-container .main-content .account-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.profile-container .main-content .account-details .profile-section {
+  flex: 0 0 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container .main-content .account-details .profile-section .profile-img {
+  text-align: center;
+}
+.profile-container .main-content .account-details .profile-section .profile-img img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #2563eb;
+}
+.profile-container .main-content .account-details .profile-info {
+  flex: 1;
+}
+.profile-container .main-content .account-details .profile-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.profile-container .main-content .account-details .profile-info form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.profile-container .main-content .account-details .profile-info form .form-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333333;
+}
+.profile-container .main-content .account-details .profile-info form .form-group input,
+.profile-container .main-content .account-details .profile-info form .form-group select {
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+.profile-container .main-content .account-details .profile-info form .form-group input:focus,
+.profile-container .main-content .account-details .profile-info form .form-group select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+.profile-container .main-content .account-details .profile-info form button[type=submit] {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.profile-container .main-content .account-details .profile-info form button[type=submit]:hover {
+  background-color: #154cbd;
+}
