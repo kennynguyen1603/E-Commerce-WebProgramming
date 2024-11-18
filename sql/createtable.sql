@@ -196,3 +196,12 @@ MODIFY customer_id INT NULL;
 ALTER TABLE customers CHANGE COLUMN username first_name VARCHAR(50);
 ALTER TABLE customers
 ADD COLUMN last_name VARCHAR(50);
+-- xóa description trong products
+ALTER TABLE products DROP COLUMN description;
+-- thêm cột is_best_seller cho products
+ALTER TABLE products
+ADD COLUMN is_best_seller TINYINT(1) DEFAULT 0;
+-- sản phẩm có name = iphone 16 thì best seller là 1
+UPDATE products
+SET is_best_seller = 1
+WHERE name LIKE '%iPhone 16%';
