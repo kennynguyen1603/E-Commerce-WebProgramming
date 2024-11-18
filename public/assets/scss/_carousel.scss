@@ -10,6 +10,7 @@
   display: flex;
   transition: transform 0.5s ease;
   padding: 20px;
+  // gap: 10px;
 }
 
 .carousel-item {
@@ -17,25 +18,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .product-name {
-    font-size: 1.5em;
-  }
-  .product-price {
-    margin: 0 !important;
-    color: #555;
-  }
 }
 
 .carousel-item img {
   width: 100%;
   height: auto;
   max-height: 200px;
-  object-fit: contain;
-}
-
-.stars {
-  color: gold;
-  font-size: 1em;
+  max-width: max-content;
+  object-fit: cover;
 }
 
 /* Nút điều hướng */
@@ -44,18 +34,23 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 24px;
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   z-index: 10;
+  border-radius: 10px;
+
   &.prev-btn {
-    left: 10px;
+    left: 0;
   }
 
   &.next-btn {
-    right: 10px;
+    right: 0;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 

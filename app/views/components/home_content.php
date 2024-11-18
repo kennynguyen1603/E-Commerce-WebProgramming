@@ -27,7 +27,8 @@
         include __DIR__  . '/products/carousel.php';
         ?>
 
-        <button class="view-all-btn"> View All </button>
+        <button class="view-all-btn"
+            onclick="window.location.href = '/e-commerce/app/views/products.php'"> View All </button>
     </section>
 
 
@@ -56,10 +57,11 @@
         <h2 class="section-title">Shop By Category</h2>
 
         <?php
-        include 'category_grid.php';
+        include 'products/category_grid.php';
         ?>
 
-        <button class="view-all-btn"> View All </button>
+        <button class="view-all-btn" onclick="window.location.href = '/e-commerce/app/views/products.php'"> View All </button>
+
     </section>
 
     <!-- Product Sale Component -->

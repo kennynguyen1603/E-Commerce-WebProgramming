@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
     exit();
 }
 ?>
+
+
 <div class="header-container">
     <div class="logo">
         <i class="fa fa-apple"></i>
@@ -24,20 +26,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
         <a href="/e-commerce/app/views/products.php" class="<?= ($_SERVER['REQUEST_URI'] === '/e-commerce/app/views/products.php') ? 'active-item' : '' ?>">Products</a>
     </nav>
 
-    <?php if ($infoUser): ?>
-        <div class="auth">
+    <div class="auth <?php echo $infoUser ? 'logged-in' : 'logged-out'; ?>">
+        <?php if ($infoUser): ?>
             <a href="/e-commerce/app/views/cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
-            <form method="POST" style="display:inline;">
-                <button type="submit" name="logout" class="logout-button">Logout</button>
-            </form>
-        </div>
-    <?php else: ?>
-        <div class="auth">
+            <a href="/e-commerce/app/views/wishlist.php">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </a>
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="/e-commerce/app/views/profile.php">Profile</a>
+                    <form method="POST" style="display:inline;">
+                        <button type="submit" name="logout" class="logout-button">Logout</button>
+                    </form>
+                </div>
+            </div>
+        <?php else: ?>
             <a href="/e-commerce/app/views/login.php">Login</a>
             <p>|</p>
             <a href="/e-commerce/app/views/sign-up.php">Sign up</a>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 </div>
