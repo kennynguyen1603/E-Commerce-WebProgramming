@@ -6,8 +6,7 @@ $db = new DB_Connection();
 
 $data = [
     'pageTitle' => 'Home',
-    // SELECT * FROM products WHERE best_seller = 1
-    'products' => $db->get('SELECT * FROM products'),
+    'products' => $db->get('SELECT id, name, thumbnail_url, price FROM products WHERE is_best_seller = 1'),
 ];
 
 renderMainLayout(__DIR__ . '/components/home_content.php', $data);

@@ -45,7 +45,6 @@ $data = [
         'id' => $product['id'],
         'name' => $product['name'],
         'price' => $product['price'],
-        'description' => $product['description'],
         'images' => $images,
         'discount' => $discount,
         'stock' => $stock,
