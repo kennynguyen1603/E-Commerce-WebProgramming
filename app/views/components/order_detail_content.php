@@ -31,11 +31,11 @@ $orderNumber = 'ORD' . strtoupper(uniqid());
 <div class="order-details">
     <header>
         <h2>-Order Details-</h2>
-        <?php echo '<button onclick="window.location.href=\'/e-commerce/app/views/home.php\'">Go to Home</button>'; ?>
+        <?php echo '<button onclick="window.location.href=\'/e-commerce/app/views/home.php\'">Home</button>'; ?>
     </header>
     <div class="order-header">
         <h3>Order Number: <?php echo $orderNumber; ?></h3>
-        <h3><?php echo count($orderSummary); ?> Products - Order Placed on <?php echo date('d M, Y \a\t H:i A'); ?></h3>
+        <h3><?php echo count($orderSummary); ?> Products - Order Placed on <?php echo date('d M, Y \a\t H:i A'); ?>~</h3>
         <h3 class="order-total"> Total: $<?php echo number_format($total, 2); ?></h3> <!-- Hiển thị tổng giá -->
     </div>
 
