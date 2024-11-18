@@ -1,10 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-}
-
 .order-details {
   max-width: 800px;
   margin: 20px auto;
@@ -12,35 +5,37 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .order-header {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .order-total {
+      color: #007bff;
+    }
+  }
 
-.order-header {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-}
+  .order-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+    background-color: #f0f0f0;
 
-.order-total {
-  color: #007bff;
-}
+    .timeline-step {
+      text-align: center;
+      position: relative;
 
-.order-timeline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding: 20px 0;
-  background-color: #f0f0f0;
-}
-
-.timeline-step {
-  text-align: center;
-  position: relative;
+      p {
+        margin: 0;
+      }
+    }
+  }
 }
 
 .timeline-circle {
@@ -56,11 +51,7 @@ header {
   margin-bottom: 10px;
 }
 
-.timeline-step p {
-  margin: 0;
-}
-
-.timeline-step .step-time {
+.timeline-step .timeline-step .step-time {
   font-size: 12px;
   color: #888;
 }
@@ -74,7 +65,7 @@ header {
 }
 
 .order-timeline:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0;
@@ -83,7 +74,6 @@ header {
   background-color: #ccc;
   z-index: -1;
 }
-
 
 .order-activity ul {
   list-style: none;
@@ -117,4 +107,3 @@ header {
   flex: 1;
   margin-right: 20px;
 }
-
