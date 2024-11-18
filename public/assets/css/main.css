@@ -1895,3 +1895,103 @@ html {
   width: 80%;
   height: auto;
 }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.order-details {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-header {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.order-total {
+  color: #007bff;
+}
+
+.order-timeline {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.timeline-step {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background: #e9ecef;
+  border-radius: 5px;
+  position: relative;
+}
+
+.timeline-step.completed {
+  background: #007bff;
+  color: #fff;
+}
+
+.timeline-step.active {
+  background: #ffca28;
+  color: #fff;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 20px;
+  height: 4px;
+  background: #ccc;
+  transform: translateY(-50%);
+}
+
+.order-activity ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-activity li {
+  margin: 5px 0;
+}
+
+.product-details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.product-details th,
+.product-details td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.order-summary div {
+  flex: 1;
+  margin-right: 20px;
+}
