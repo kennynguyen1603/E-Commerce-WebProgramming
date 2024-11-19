@@ -1,0 +1,149 @@
+.order-details {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .order-header {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+  
+      .order-total {
+        color: #007bff;
+      }
+    }
+  }
+  
+  /* Định dạng container chính của timeline */
+  .order-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Đường thẳng liên tục */
+  .order-timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ddd; /* Màu mặc định của đường */
+    z-index: -1;
+    transform: translateY(-50%);
+  }
+  
+  /* Đổi màu đường thẳng dựa trên tiến độ */
+  .order-timeline .timeline-step.completed ~ .timeline-step::before,
+  .order-timeline .timeline-step.active ~ .timeline-step::before {
+    background-color: #ddd; /* Reset màu phía sau bước hoàn thành */
+  }
+  
+  /* Các bước trong timeline */
+  .timeline-step {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    flex: 1; /* Đảm bảo mỗi bước có không gian bằng nhau */
+  }
+  
+  
+  
+  /* Vòng tròn đại diện cho từng bước */
+  .timeline-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hiệu ứng hover */
+  .timeline-step:hover .timeline-circle {
+    background-color: #ff9800;
+    transform: scale(1.2); /* Phóng to khi hover */
+    cursor: pointer;
+  }
+  
+  /* Các bước hoàn thành */
+  .timeline-step.completed .timeline-circle {
+    background-color: #4caf50; /* Màu xanh cho bước hoàn thành */
+  }
+  
+  /* Bước hiện tại */
+  .timeline-step.active .timeline-circle {
+    background-color: #007bff; /* Màu xanh dương cho bước hiện tại */
+    transform: scale(1.2); /* Phóng to bước hiện tại */
+  }
+  
+  /* Nhãn tên của từng bước */
+  .timeline-label {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+  }
+  
+  .timeline-step.completed .timeline-label {
+    color: #4caf50; /* Màu xanh cho bước hoàn thành */
+  }
+  
+  .timeline-step.active .timeline-label {
+    color: #007bff; /* Màu xanh dương cho bước hiện tại */
+  }
+  
+  
+  .product-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .product-details th,
+  .product-details td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .order-summary div {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .order-header {
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: flex-end; /* Căn chỉnh nội dung ở phía bên phải */
+  }
+  
+  .order-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
