@@ -44,11 +44,10 @@ if ($userData) {
         <i class="fa fa-slack" aria-hidden="true"></i>
 
       </svg> Dashboard</a></li>
-      <li><a href="#">
-          <i class="fa fa-user-circle" aria-hidden="true"></i>
-       Account Details</a></li>
-      <li><a href="#"><i class="fa fa-history" aria-hidden="true"></i>
-      Order History</a></li>
+      <li><a href="/e-commerce/app/views/admin_dashboard.php">
+        <i class="fa fa-slack" aria-hidden="true"></i> Dashboard</a></li>
+      <li><a href="/e-commerce/app/views/profile.php">
+        <i class="fa fa-user-circle" aria-hidden="true"></i> Account Details</a></li>
       <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
       Track Order</a></li>
       <li><a href="#"> <i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
