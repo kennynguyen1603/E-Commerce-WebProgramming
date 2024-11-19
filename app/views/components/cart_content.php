@@ -3,8 +3,10 @@
         <h2>Shopping Cart</h2>
         <?php foreach ($cartItems as $item): ?>
             <div class="cart-item" data-product-id="<?php echo $item['product_id']; ?>">
-                <button class="remove-item">X</button>
-                <a href="/e-commerce/app/views/product_detail.php?id=<?php echo $item['product_id']; ?>">
+                <button class="remove-item">
+                    &#10005;
+                </button>
+                <a href=" /e-commerce/app/views/product_detail.php?id=<?php echo $item['product_id']; ?>">
                     <img src="<?php echo htmlspecialchars($item['main_image_url']); ?>" alt="<?php echo htmlspecialchars($item['product_name']); ?>">
                 </a>
                 <div class="cart-item-details">
@@ -21,6 +23,7 @@
                 </div>
             </div>
         <?php endforeach; ?>
+
     </div>
 
     <!-- Phần hiển thị tổng cộng của giỏ hàng -->
