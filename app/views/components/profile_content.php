@@ -40,10 +40,6 @@ if ($userData) {
 <div class="profile-container">
   <aside class="sidebar">
     <ul>
-      <li><a href="#">
-        <i class="fa fa-slack" aria-hidden="true"></i>
-
-      </svg> Dashboard</a></li>
       <li><a href="/e-commerce/app/views/admin_dashboard.php">
         <i class="fa fa-slack" aria-hidden="true"></i> Dashboard</a></li>
       <li><a href="/e-commerce/app/views/profile.php">
