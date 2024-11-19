@@ -24,12 +24,12 @@ if ($product_id > 0) {
     // Lấy giảm giá của sản phẩm
     $query = "SELECT discount_percentage FROM discounts WHERE product_id = $product_id";
     $discount = $db->get($query);
-    $discount = !empty($discount) ? $discount[0]['discount_percent'] : 0;
+    $discount = !empty($discount) ? $discount[0]['discount_percentage'] : 0;
 
     // Lấy số lượng sản phẩm trong kho
     $query = "SELECT quantity FROM stocks WHERE product_id = $product_id";
     $stock = $db->get($query);
-    $stock = !empty($stock) ? $stock[0]['stock_quantity'] : 0;
+    $stock = !empty($stock) ? $stock[0]['quantity'] : 0;
 
     // Lấy đánh giá của sản phẩm
     $query = "SELECT * FROM reviews WHERE product_id = $product_id";

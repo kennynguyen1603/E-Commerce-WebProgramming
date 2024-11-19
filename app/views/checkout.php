@@ -80,18 +80,25 @@ if (isset($_GET['product_id']) && isset($_GET['quantity']) && !is_array($_GET['p
     exit;
 }
 
-// Tính toán tổng cộng
 $shipping = 0;
-$discountTotal = 24;
-$tax = $subTotal * 0.18;
-$total = $subTotal + $tax + $shipping - $discountTotal;
+$subTotal = 0;
+$totalDiscount = 0;
+$tax = 2999;
+
+foreach ($orderSummary as $item) {
+    $subTotal += $item['total_price'];
+    $totalDiscount += ($item['price'] - $item['discounted_price']) * $item['quantity'];
+}
+
+// Tổng giá trị thanh toán
+$total = $subTotal + $tax + $shipping;
 
 // Trả về dữ liệu cho giao diện
 $data = [
     'orderSummary' => $orderSummary,
     'subTotal' => $subTotal,
     'shipping' => $shipping,
-    'discountTotal' => $discountTotal,
+    'discountTotal' => $totalDiscount,
     'tax' => $tax,
     'total' => $total,
     'pageTitle' => 'Checkout'
