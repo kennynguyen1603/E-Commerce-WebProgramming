@@ -69,7 +69,8 @@ if (isset($productDetails['images']) && is_array($productDetails['images'])) {
                 </div>
                 <!-- Tab Content -->
                 <div id="description" class="tab-content">
-                    <!-- <p><?php echo htmlspecialchars($productDetails['description'] ?? 'No description available.'); ?></p> -->
+                    <h3>Description</h3>
+                    <p><?php echo 'No description available.'; ?></p>
                 </div>
                 <div id="reviews" class="tab-content" style="display:none;">
                     <h3>Reviews</h3>
