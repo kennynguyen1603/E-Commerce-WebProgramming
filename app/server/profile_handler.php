@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Lấy thông tin người dùng từ cơ sở dữ liệu
-$query = "SELECT first_name, last_name, email, phone, country, state, pin FROM custmers WHERE id = :user_id";
+$query = "SELECT first_name, last_name, email, phone, country, address, pin FROM customers WHERE id = :user_id";
 $params = [':user_id' => $user_id];
 $userData = $db->get_one($query, $params);
 
@@ -29,7 +29,7 @@ if ($userData) {
     $_SESSION['email'] = $userData['email'];
     $_SESSION['phone'] = $userData['phone'] ?? '';
     $_SESSION['country'] = $userData['country'] ?? '';
-    $_SESSION['state'] = $userData['state'] ?? '';
+    $_SESSION['address'] = $userData['address'] ?? '';
     $_SESSION['pin'] = $userData['pin'] ?? '';
 
     // Chuyển hướng về trang profile_content.php
