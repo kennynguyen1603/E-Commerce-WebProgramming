@@ -12,6 +12,7 @@ VALUES ('Smartphone'),
     ('Camera');
 -- Smartphones
 -- iPhone 16 Pro Max 256GB
+-- iPhone 16 Pro Max 256GB
 INSERT INTO products (
         name,
         category_id,
@@ -29,24 +30,50 @@ VALUES (
         1,
         2200,
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max.png'
-    ),
-    (
-        LAST_INSERT_ID(),
-        'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max.png',
+    );
+INSERT INTO product_images (product_id, image_url, is_main)
+VALUES (
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB'
+        ),
+        'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max.png',
         1
     ),
     (
-        LAST_INSERT_ID(),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB'
+        ),
+        'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max.png',
+        0
+    ),
+    (
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB'
+        ),
         'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max-2.png',
         0
     ),
     (
-        LAST_INSERT_ID(),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB'
+        ),
         'https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-16-pro-max-3.png',
         0
     ),
     (
-        LAST_INSERT_ID(),
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max-6.png',
         0
     );
@@ -71,22 +98,38 @@ VALUES (
     );
 INSERT INTO product_images (product_id, image_url, is_main)
 VALUES (
-        2,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 128GB'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-1.png',
         1
     ),
     (
-        2,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 128GB'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-2.png',
         0
     ),
     (
-        2,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 128GB'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-3.png',
         0
     ),
     (
-        2,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 128GB'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-6.png',
         0
     );
@@ -111,22 +154,38 @@ VALUES (
     );
 INSERT INTO product_images (product_id, image_url, is_main)
 VALUES (
-        3,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB - Đổi Bảo Hành'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max_3_1.png',
         0
     ),
     (
-        3,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB - Đổi Bảo Hành'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/p/h/photo_2024-10-02_13-59-00_1_1.jpg',
         0
     ),
     (
-        3,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB - Đổi Bảo Hành'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max-2_3_1.png',
         0
     ),
     (
-        3,
+        (
+            SELECT id
+            FROM products
+            WHERE name = 'iPhone 16 Pro Max 256GB - Đổi Bảo Hành'
+        ),
         'https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro-max-3_3_1.png',
         0
     );
