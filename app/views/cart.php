@@ -46,7 +46,7 @@ $cartItems = $db->get($cartQuery, [$customer_id]);
 
 // Tính toán tổng phụ, giảm giá, thuế và tổng cộng
 $subTotal = 0;
-$discount = 999; // Giả sử giảm giá cố định
+$totalDiscount = 0; // Giả sử giảm giá cố định
 
 foreach ($cartItems as $item) {
   $subTotal += $item['sub_total'];
@@ -54,7 +54,7 @@ foreach ($cartItems as $item) {
 }
 
 $tax = 2999; // Giả sử thuế cố định
-$total = $subTotal - $discount + $tax;
+$total = $subTotal + $tax;
 
 // Chuyển dữ liệu sang view để hiển thị
 $data = [
