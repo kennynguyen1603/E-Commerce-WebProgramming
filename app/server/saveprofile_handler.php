@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $phone = $_POST['phone'] ?? '';
     $country = $_POST['country'] ?? '';
-    $state = $_POST['state'] ?? '';
+    $address = $_POST['address'] ?? '';
     $pin = $_POST['pin'] ?? '';
 
     // Kiểm tra dữ liệu có đầy đủ
-    if (empty($firstName) || empty($secondName) || empty($username) || empty($email) || empty($phone) || empty($country) || empty($state) || empty($pin)) {
+    if (empty($firstName) || empty($secondName) || empty($username) || empty($email) || empty($phone) || empty($country) || empty($address) || empty($pin)) {
         echo "Vui lòng điền đầy đủ thông tin.";
     } else {
         // Kiểm tra email hợp lệ
@@ -38,22 +38,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Email không hợp lệ. Vui lòng kiểm tra lại.";
         } else {
             // Nếu dữ liệu hợp lệ, thực thi câu lệnh UPDATE
-            $query = "INSERT INTO profile (first_name, second_name, username, email, phone, country, state, pin) 
-                    VALUES (:firstName, :secondName, :username, :email, :phone, :country, :state, :pin)";
-
+            $query = "UPDATE customers 
+            SET phone = :phone, 
+                country = :country, 
+                address = :address, 
+                pin = :pin 
+            WHERE id = :user_id";
 
             $params = [
-                ':firstName' => $_POST['first_name'],
-                ':secondName' => $_POST['second_name'],
-                ':username' => $_POST['username'],
-                ':email' => $_POST['email'],
-                ':phone' => $_POST['phone'],
-                ':country' => $_POST['country'],
-                ':state' => $_POST['state'],
-                ':pin' => $_POST['pin'],
+                ':phone' => $phone,
+                ':country' => $country,
+                ':address' => $address,
+                ':pin' => $pin,
+                ':user_id' => $user_id
             ];
-
             if ($db->query($query, $params)) {
+                $_SESSION['phone'] = $phone;
+                $_SESSION['country'] = $country;
+                $_SESSION['address'] = $address;
+                $_SESSION['pin'] = $pin;
                 echo '<div style="color: green; text-align: center; font-size: 20px;">Thông tin tài khoản đã được cập nhật thành công!</div>';
                 header('Location: /e-commerce/app/views/home.php');
             } else {

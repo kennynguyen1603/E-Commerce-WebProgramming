@@ -1,3 +1,16 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /e-commerce/app/views/login.php");
+    exit();
+}
+
+?>
+
 <div class="profile-container">
   <aside class="sidebar">
     <ul>
@@ -26,54 +39,57 @@
       <div class="profile-info">
 
       <form action="/e-commerce/app/server/saveprofile_handler.php" method="POST">
-    <div class="form-group">
-        <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" value="Fey">
+      <div class="form-group">
+        <label for="first_name"><strong>First Name:</strong></label>
+        <input type="text" id="first_name" name="first_name" 
+              value="<?= htmlspecialchars($_SESSION['first_name'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label for="second_name">Second Name</label>
-        <input type="text" id="second_name" name="second_name" value="Ibrahim">
+        <label for="second_name"><strong>Last Name:</strong></label>
+        <input type="text" id="second_name" name="second_name" 
+              value="<?= htmlspecialchars($_SESSION['last_name'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" value="feyzibrahim">
+        <label for="username"><strong>Username:</strong></label>
+        <input type="text" id="username" name="username" 
+              value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="feyzibrahim@gmail.com">
+        <label for="email"><strong>Email:</strong></label>
+        <input type="email" id="email" name="email" 
+              value="<?= htmlspecialchars($_SESSION['email'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" value="07034985827">
+        <label for="phone"><strong>Phone Number:</strong></label>
+        <input type="tel" id="phone" name="phone" 
+              value="<?= htmlspecialchars($_SESSION['phone'] ?? '') ?>">
     </div>
     <div class="form-group">
-        <label for="country">Country/Region</label>
+        <label for="country"><strong>Country:</strong></label>
         <select id="country" name="country">
-            <option>India</option>
-            <option>Viet Nam</option>
-            <option>Indonesia</option>
-            <option>Japanese</option>
-            <option>Korea</option>
-            <option>Iran</option>
-            <option>Ukraine</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'India' ? 'selected' : '' ?>>India</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Viet Nam' ? 'selected' : '' ?>>Viet Nam</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Indonesia' ? 'selected' : '' ?>>Indonesia</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Japanese' ? 'selected' : '' ?>>Japanese</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Korea' ? 'selected' : '' ?>>Korea</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Iran' ? 'selected' : '' ?>>Iran</option>
+            <option <?= ($_SESSION['country'] ?? '') == 'Ukraine' ? 'selected' : '' ?>>Ukraine</option>
         </select>
     </div>
     <div class="form-group">
-        <label for="state">State</label>
-        <select id="state" name="state">
-            <option>Kerala</option>
-            <option>Montana</option>
-            <option>Iowa</option>
-            <option>Ohio</option>
-            <option>New York</option>
-            <option>Maine</option>
-            <option>Texas</option>
-        </select>
+    <label for="address"><strong>Address</strong></label>
+    <input type="text" id="address" name="address" 
+           value="<?= htmlspecialchars($_SESSION['address'] ?? '') ?>" 
+           placeholder="">
     </div>
+
     <div class="form-group">
-        <label for="pin">Pin Code</label>
-        <input type="text" id="pin" name="pin" value="673570">
+        <label for="pin"><strong>Pin Code:</strong></label>
+        <input type="text" id="pin" name="pin" 
+              value="<?= htmlspecialchars($_SESSION['pin'] ?? '') ?>">
     </div>
+
+
     <button type="submit">Save Changes</button>
 </form>
     </section>

@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['role'] = 'user';
 
         echo "Registration successful!";
-        header("Location: /e-commerce/app/views/home.php");
+        header("Location: /e-commerce/app/server/profile_handler.php");
         exit();
     } else {
         echo "Error occurred while registering. Please try again.";
