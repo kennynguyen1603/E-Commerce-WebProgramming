@@ -2493,20 +2493,9 @@ html {
   border: 1px solid #ddd;
 }
 
-.order-summary {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.order-summary div {
-  flex: 1;
-  margin-right: 20px;
-}
-
 .order-header {
-  display: flex; /* Sử dụng Flexbox */
-  justify-content: flex-end; /* Căn chỉnh nội dung ở phía bên phải */
+  display: flex;
+  justify-content: flex-end;
 }
 
 .order-total {
