@@ -40,10 +40,6 @@ if ($userData) {
 <div class="profile-container">
   <aside class="sidebar">
     <ul>
-      <li><a href="#">
-        <i class="fa fa-slack" aria-hidden="true"></i>
-
-      </svg> Dashboard</a></li>
       <li><a href="/e-commerce/app/views/admin_dashboard.php">
         <i class="fa fa-slack" aria-hidden="true"></i> Dashboard</a></li>
       <li><a href="/e-commerce/app/views/profile.php">
@@ -58,7 +54,7 @@ if ($userData) {
     <section class="account-details">
       <div class="profile-section">
         <div class="profile-img">
-          <img src="https://i.imgur.com/bDLhJiP.jpg" class="rounded-circle" alt="Profile Picture">
+          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FUser-Profile-PNG-High-Quality-Image.png&f=1&nofb=1&ipt=596ba003123a2baf85fffac9393db42d4b03a6819014a9fde2f84ba7ddf8ec7b&ipo=images" class="rounded-circle" alt="Profile Picture">
         </div>
       </div>
       <div class="profile-info">

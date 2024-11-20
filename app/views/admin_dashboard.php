@@ -9,4 +9,6 @@ $data = [
 
 ];
 
+
+
 renderMainLayout(__DIR__ . '/components/admin_dashboard_content.php', $data);

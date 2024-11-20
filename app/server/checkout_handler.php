@@ -5,6 +5,17 @@ $db = new DB_Connection();
 
 $customer_id = $_SESSION['user_id'] ?? null;
 
+$_SESSION['billing_info'] = $billing_info;
+
+
+// Lưu thông tin vào session
+$orderSummary = isset($_POST['order_items']) ? json_decode($_POST['order_items'], true) : [];
+
+// Lưu thông tin đơn hàng vào session
+$_SESSION['order_summary'] = $_POST['order_items'];  
+$_SESSION['order_summary'] = json_encode($data['orderSummary']); // Đảm bảo dữ liệu đơn hàng đã có trong $data['orderSummary']
+$_SESSION['order_summary'] = json_encode($orderSummary);
+
 $billing_info = [
     'first_name' => $_POST['first_name'],
     'last_name' => $_POST['last_name'],
@@ -17,6 +28,8 @@ $billing_info = [
     'email' => $_POST['email'],
     'phone' => $_POST['phone']
 ];
+
+
 
 $payment_method = $_POST['payment'];
 $order_notes = $_POST['order_notes'] ?? '';
@@ -63,11 +76,14 @@ try {
         $db->query($orderItemQuery, $params);
     }
 
+
     echo json_encode(['success' => true, 'message' => 'Order created successfully']);
-    echo '<button onclick="window.location.href=\'/e-commerce/app/views/home.php\'">Go to Home</button>';
-    // header('Location: /app/views/order_confirmation.php?order_id=' . $order_id); chuyển đến trang xác nhận đơn hàng
+    echo '<button onclick="window.location.href=\'/e-commerce/app/views/order.php\'">Go to Home</button>';
+
+    //chuyển đến trang xác nhận đơn hàng
+    header('Location: /e-commerce/app/views/order.php'); 
     // tạm thời cho chuyển đến trang products
-    // header('Location: /e-commerce/app/views/products.php');
+    // header('Location: /e-commerce/app/views/products.php ');
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'error' => 'Failed to create order: ' . $e->getMessage()]);
 }
