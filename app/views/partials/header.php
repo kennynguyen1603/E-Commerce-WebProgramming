@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
             <a href="/e-commerce/app/views/cart.php">
                 <i class="fa fa-shopping-cart"></i>
             </a>
-            <a href="/e-commerce/app/views/wishlist.php">
+            <!-- <a href="/e-commerce/app/views/wishlist.php">
                 <i class="fa fa-heart" aria-hidden="true"></i>
-            </a>
+            </a> -->
 
             <div class="dropdown">
                 <button class="dropbtn">
