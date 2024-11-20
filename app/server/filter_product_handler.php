@@ -28,6 +28,23 @@ function fetchFilteredProducts($brands, $categories, $minPrice, $maxPrice, $pric
         $params = array_merge($params, $categories);
     }
 
+    // if (!empty($categories)) {
+    //     if (in_array('others', $categories)) {
+    //         $mainCategories = ['Smartphone', 'Tablet', 'Laptop', 'Smartwatch'];
+    //         $otherCategories = array_diff($categories, ['others']);
+    //         $conditions[] = "(categories.name NOT IN ('" . implode("','", $mainCategories) . "')";
+    //         if (!empty($otherCategories)) {
+    //             $conditions[] .= " OR categories.name IN (" . implode(',', array_fill(0, count($otherCategories), '?')) . ")";
+    //             $params = array_merge($params, $otherCategories);
+    //         }
+    //         $conditions[] .= ")";
+    //     } else {
+    //         $conditions[] = "categories.name IN (" . implode(',', array_fill(0, count($categories), '?')) . ")";
+    //         $params = array_merge($params, $categories);
+    //     }
+    // }
+
+
     // Filter by price range
     if (!empty($minPrice) && !empty($maxPrice)) {
         $conditions[] = "products.price BETWEEN ? AND ?";
@@ -141,12 +158,12 @@ $brands = $_GET['brand'] ?? [];
 $categories = $_GET['category'] ?? [];
 $minPrice = $_GET['minPrice'] ?? 0;
 
-$maxPrice = $_GET['maxPrice'] ?? 50000;
+$maxPrice = $_GET['maxPrice'] ?? 5000;
 $priceFilter = $_GET['priceFilter'] ?? '';
 $search = $_GET['search'] ?? '';
 $sort = $_GET['sort'] ?? '';
 
-$limit = 4;
+$limit = 12;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 

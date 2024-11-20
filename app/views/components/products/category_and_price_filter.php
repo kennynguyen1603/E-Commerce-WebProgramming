@@ -19,6 +19,7 @@
                 <li><input type="checkbox" name="category[]" id="Tablet" value="Tablet"><label for="Tablet">Tablet</label></li>
                 <li><input type="checkbox" name="category[]" id="Laptop" value="Laptop"><label for="Laptop">Laptop</label></li>
                 <li><input type="checkbox" name="category[]" id="smartWatch" value="smartWatch"><label for="smartWatch">Smart Watch</label></li>
+                <li><input type="checkbox" name="category[]" id="airpods" value="AirPods"><label for="airpods">AirPods</label></li>
                 <li><input type="checkbox" name="category[]" id="Others" value="Others"><label for="Others">Others</label></li>
             </ul>
         </div>
