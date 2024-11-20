@@ -201,7 +201,12 @@ ALTER TABLE products DROP COLUMN description;
 -- thêm cột is_best_seller cho products
 ALTER TABLE products
 ADD COLUMN is_best_seller TINYINT(1) DEFAULT 0;
--- sản phẩm có name = iphone 16 thì best seller là 1
-UPDATE products
-SET is_best_seller = 1
-WHERE name LIKE '%iPhone 16%';
+ALTER TABLE customers
+ADD COLUMN country VARCHAR(100)
+AFTER `last_name`,
+    ADD COLUMN pin VARCHAR(20)
+AFTER `country`;
+UPDATE customers
+SET country = 'Vietnam',
+    pin = '000000'
+WHERE id = '9';
