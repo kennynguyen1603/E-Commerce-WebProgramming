@@ -31,9 +31,9 @@ if ($product_id > 0) {
     $stock = $db->get($query);
     $stock = !empty($stock) ? $stock[0]['quantity'] : 0;
 
-    // Lấy đánh giá của sản phẩm
-    $query = "SELECT * FROM reviews WHERE product_id = $product_id";
-    $reviews = $db->get($query);
+    // // Lấy đánh giá của sản phẩm
+    // $query = "SELECT * FROM reviews WHERE product_id = $product_id";
+    // $reviews = $db->get($query);
 } else {
     echo "Invalid product ID.";
     exit;
@@ -48,7 +48,7 @@ $data = [
         'images' => $images,
         'discount' => $discount,
         'stock' => $stock,
-        'reviews' => $reviews
+        // 'reviews' => $reviews
     ]
 ];
 
