@@ -25,7 +25,7 @@
 
         <!-- Price Range Slider -->
         <div class="price-range">
-            <h3 class="filter-title">Price Range</h3>
+            <!-- <h3 class="filter-title">Price Range</h3>
             <div class="slider">
                 <div class="process"></div>
             </div>
@@ -38,7 +38,7 @@
                 <span id="currentMinPrice">0$</span>
                 <span id="currentMaxPrice">4000$</span>
                 <span>4000$</span>
-            </div>
+            </div> -->
         </div>
 
         <!-- Price Filters Radio Buttons -->
@@ -55,3 +55,68 @@
         </div>
     </div>
 </form>
+
+<script>
+    // This function will update the slider values and display based on the radio button selection.
+    // function updatePriceFromRadio(radio) {
+    //     const priceRange = radio.value.split('-');
+    //     const minPrice = parseInt(priceRange[0]);
+    //     const maxPrice = parseInt(priceRange[1]);
+
+    //     // Update slider values
+    //     document.getElementById('minPrice').value = minPrice;
+    //     document.getElementById('maxPrice').value = maxPrice;
+
+    //     // Update price range display
+    //     document.getElementById('currentMinPrice').textContent = minPrice + "$";
+    //     document.getElementById('currentMaxPrice').textContent = maxPrice + "$";
+
+    //     // Update process bar
+    //     const process = document.getElementById('priceRangeProcess');
+    //     process.style.left = `${(minPrice / 4000) * 100}%`;
+    //     process.style.right = `${100 - (maxPrice / 4000) * 100}%`;
+
+    //     // Update the form input values if needed
+    //     document.getElementById('filterForm').submit();
+    // }
+
+    // // This function will update the price range display and the process bar when the slider is changed.
+    // function updatePriceRange() {
+    //     const minPrice = parseInt(document.getElementById('minPrice').value);
+    //     const maxPrice = parseInt(document.getElementById('maxPrice').value);
+
+    //     // Update price range display
+    //     document.getElementById('currentMinPrice').textContent = minPrice + "$";
+    //     document.getElementById('currentMaxPrice').textContent = maxPrice + "$";
+
+    //     // Update process bar
+    //     const process = document.getElementById('priceRangeProcess');
+    //     process.style.left = `${(minPrice / 4000) * 100}%`;
+    //     process.style.right = `${100 - (maxPrice / 4000) * 100}%`;
+    // }
+
+    // // Initialize the form when the page loads
+    // window.onload = updatePriceRange;
+
+    function updatePriceRange() {
+        const minPrice = parseInt(document.getElementById('minPrice').value);
+        const maxPrice = parseInt(document.getElementById('maxPrice').value);
+
+        // Ensure the min price is always less than or equal to the max price
+        if (minPrice > maxPrice) {
+            document.getElementById('minPrice').value = maxPrice;
+        }
+
+        // Update the slider display
+        document.querySelector('.range-min').style.width = `${(minPrice / 50000) * 100}%`;
+        document.querySelector('.range-max').style.width = `${((maxPrice - minPrice) / 50000) * 100}%`;
+        document.querySelector('.range-max').style.left = `${(minPrice / 50000) * 100}%`;
+
+        // Update the price values in the UI
+        document.getElementById('currentMinPrice').textContent = minPrice + "$";
+        document.getElementById('currentMaxPrice').textContent = maxPrice + "$";
+    }
+
+    // Initialize the form when the page loads
+    window.onload = updatePriceRange;
+</script>
