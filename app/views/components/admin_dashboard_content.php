@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../../server/admin_dashboard_handler.php';
+$orders = $_SESSION['latest_orders'] ?? [];
+?>
 <div class="admindashboard-container">
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -87,73 +91,168 @@
     </div>
   </section>
 </div>
-
-
 <section class="latest-orders">
-  <h2>Latest Orders</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Order ID</th>
-        <th>Product</th>
-        <th>Date</th>
-        <th>Customer</th>
-        <th>Total</th>
-        <th>Payment</th>
-        <th>Status</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>302012</td>
-        <td>iPhone 11 Pro</td>
-        <td>29 Dec 2022</td>
-        <td>Josh Wisley</td>
-        <td>₹59,000</td>
-        <td>24 Jun 2023</td>
-        <td class="status processing">Processing</td>
-        <td>
-          <div class="action-buttons">
-            <button class="view-btn">
-              <i class="fa fa-eye" aria-hidden="true"></i> View
-            </button>
-            <button class="edit-btn">
-              <i class="fa fa-edit" aria-hidden="true"></i> Edit
-            </button>
-            <button class="delete-btn">
-              <i class="fa fa-trash" aria-hidden="true"></i> Delete
-            </button>
-          </div>
-        </td>
-        </td>
-      </tr>
-      <tr>
-        <td>302013</td>
-        <td>MacBook Pro</td>
-        <td>30 Dec 2022</td>
-        <td>Jane Doe</td>
-        <td>₹1,20,000</td>
-        <td>30 Jun 2023</td>
-        <td class="status completed">Completed</td>
-        <td>
-          <div class="action-buttons">
-            <button class="view-btn">
-              <i class="fa fa-eye" aria-hidden="true"></i> View
-            </button>
-            <button class="edit-btn">
-              <i class="fa fa-edit" aria-hidden="true"></i> Edit
-            </button>
-            <button class="delete-btn">
-              <i class="fa fa-trash" aria-hidden="true"></i> Delete
-            </button>
-          </div>
-        </td>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
+      <h2>Latest Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>Region</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php if (!empty($orders)) : ?>
+            <?php foreach ($orders as $order) : ?>
+              <tr>
+                <td><?= htmlspecialchars($order['order_id']) ?></td>
+                <td><?= htmlspecialchars($order['address']) ?></td>
+                <td><?= htmlspecialchars($order['country']) ?></td>
+                <td><?= htmlspecialchars($order['region']) ?></td>
+                <td><?= htmlspecialchars($order['email']) ?></td>
+                <td><?= htmlspecialchars($order['phone']) ?></td>
+                <td>
+                  <div class="action-buttons">
+                    <!-- View Button -->
+                    <button class="view-btn" data-order-id="<?= htmlspecialchars($order['order_id']) ?>">
+                      <i class="fa fa-eye" aria-hidden="true"></i> View
+                    </button>
+                    <!-- Edit Button -->
+                    <button class="edit-btn" data-order-id="<?= htmlspecialchars($order['order_id']) ?>">
+                      <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                    </button>
+                    <!-- Delete Button -->
+                    <button class="delete-btn" data-order-id="<?= htmlspecialchars($order['order_id']) ?>">
+                      <i class="fa fa-trash" aria-hidden="true"></i> Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          <?php else : ?>
+            <tr>
+              <td colspan="7" class="text-center">No orders found.</td>
+            </tr>
+          <?php endif; ?>
+        </tbody>
+      </table>
+    </section>
   </main>
 </div>
+
+<script>
+// Function to view an order
+function viewOrder(orderId) {
+    console.log("Fetching order details for Order ID:", orderId);
+
+    fetch(`/e-commerce/app/views/components/editions/order_details.php?id=${orderId}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log("API Response:", data);
+            if (data.success) {
+                displayOrderDetails(data.order);
+            } else {
+                alert("Failed to fetch order details: " + data.error);
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred while fetching order details.");
+        });
+}
+
+// Function to display order details
+function displayOrderDetails(order) {
+    const modal = document.getElementById("order-details-modal");
+    const modalContent = document.getElementById("modal-content");
+
+    modalContent.innerHTML = `
+        <h2>Order Details</h2>
+        <p><strong>Order ID:</strong> ${order.id}</p>
+        <p><strong>Order Date:</strong> ${order.order_date}</p>
+        <p><strong>Status:</strong> ${order.status}</p>
+        <p><strong>Total:</strong> ₹${order.total}</p>
+        <h3>Customer Information</h3>
+        <p><strong>Customer ID:</strong> ${order.customer_id}</p>
+        <button onclick="closeModal()">Close</button>
+    `;
+
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById("order-details-modal");
+    modal.style.display = "none";
+}
+
+// Function to edit an order
+function editOrder(orderId) {
+    window.location.href = `/e-commerce/app/views/components/editions/edit_order.php?id=${orderId}`;
+}
+
+// Function to delete an order
+function deleteOrder(orderId) {
+    if (confirm("Are you sure you want to delete this order?")) {
+        fetch(`/e-commerce/app/actions/delete_order.php`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ order_id: orderId }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    alert("Order deleted successfully.");
+                    window.location.reload();
+                } else {
+                    alert("Failed to delete order: " + data.error);
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("An error occurred while deleting the order.");
+            });
+    }
+}
+
+// Attach event listeners dynamically
+function attachEventListeners() {
+    document.querySelectorAll(".view-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const orderId = this.getAttribute("data-order-id");
+            viewOrder(orderId);
+        });
+    });
+
+    document.querySelectorAll(".edit-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const orderId = this.getAttribute("data-order-id");
+            editOrder(orderId);
+        });
+    });
+
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const orderId = this.getAttribute("data-order-id");
+            deleteOrder(orderId);
+        });
+    });
+}
+
+// Attach event listeners after DOM content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    attachEventListeners();
+});
+
+</script>
