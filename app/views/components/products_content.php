@@ -7,7 +7,7 @@
         const customerId = "<?php echo isset($_SESSION['user_id']) ? htmlspecialchars($_SESSION['user_id']) : ''; ?>";
 
         let currentPage = 1;
-        const limit = 4;
+        const limit = 12;
 
         // Hàm lấy danh sách sản phẩm đã lọc
         function fetchFilteredProducts() {
