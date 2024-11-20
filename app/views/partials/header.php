@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['logout'])) {
 
                 <div class="dropdown-content">
                     <a href="/e-commerce/app/views/profile.php">Profile</a>
-                    <a href="/e-commerce/app/views/admin_dashboard.php">Admin Daskboard</a>
+                    <a href="/e-commerce/app/views/admin_dashboard.php">Admin</a>
                     <form method="POST" style="display:inline;">
                         <button type="submit" name="logout" class="logout-button">Logout</button>
                     </form>
