@@ -28,3 +28,7 @@ VALUES (
     );
 INSERT INTO stocks (product_id, quantity)
 VALUES (1, 100);
+-- sản phẩm có name = iphone 16 thì best seller là 1
+UPDATE products
+SET is_best_seller = 1
+WHERE name LIKE '%iPhone 16%';
