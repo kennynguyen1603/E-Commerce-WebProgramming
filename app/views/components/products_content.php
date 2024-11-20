@@ -21,7 +21,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const productContainer = document.querySelector('.product-list');
-                    productContainer.innerHTML = ''; // Xóa các sản phẩm hiện tại
+                    productContainer.innerHTML = '';
 
                     data.products.forEach(product => {
                         const productItem = document.createElement('div');
@@ -148,3 +148,4 @@
 </div>
 
 <script src="/e-commerce/public/assets/js/checkout.js"></script>
+<script src="/e-commerce/public/assets/js/add_to_cart.js"></script>
