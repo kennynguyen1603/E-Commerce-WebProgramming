@@ -1324,6 +1324,7 @@ html {
 }
 .product-detail .detail-container .product-image-section .main-image img {
   width: 500px;
+  height: 500px;
   border-radius: 8px;
 }
 .product-detail .detail-container .product-image-section .thumbnail-carousel {
